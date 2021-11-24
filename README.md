@@ -2,7 +2,7 @@
 
 `ldd` and `lddtree` results differ when modifying the libraries rpath.
 
-This repo is a reproductible case of this issue.
+This repo is a reproducible case of this issue.
 
 See the outputs:
 
