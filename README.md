@@ -43,4 +43,11 @@ The depending library `libB` is found with `lddtree` but should not.
 
 It seems that `rpath` info is not used with `lddtree`.
 
+```
+Running ldd
+	libLibB.so => not found
+Running lddtree
+        libLibB.so => /home/gogoprog/code/lddtreebug/build/libLibB.so
+```
+
 
