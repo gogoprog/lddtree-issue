@@ -16,7 +16,7 @@ patchelf *.so --set-rpath 'somethingwrong/'
 Then notice the difference between the 2 outputs:
 
 ```shell
-$ ldd Main                                                                                                                                                                       !10084
+$ ldd Main
 	linux-vdso.so.1 (0x00007ffcfabf7000)
 	libLibA.so => /home/gogoprog/code/lddtreebug/build/libLibA.so (0x00007f45217fc000)
 	libstdc++.so.6 => /usr/lib/libstdc++.so.6 (0x00007f45215bc000)
@@ -29,7 +29,7 @@ $ ldd Main                                                                      
 ```
 
 ```shell
-$ lddtree Main                                                                                                                                                                   !10085
+$ lddtree Main
 Main (interpreter => /lib64/ld-linux-x86-64.so.2)
     libLibA.so => /home/gogoprog/code/lddtreebug/build/libLibA.so
         libLibB.so => /home/gogoprog/code/lddtreebug/build/libLibB.so
