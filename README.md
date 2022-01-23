@@ -4,7 +4,16 @@
 
 This repo is a reproducible case of this issue.
 
-See the outputs:
+
+#### Steps
+
+First modify the rpath of a lib:
+
+```shell
+patchelf *.so --set-rpath 'somethingwrong/'
+```
+
+Then notice the difference between the 2 outputs:
 
 ```shell
 $ ldd Main                                                                                                                                                                       !10084
@@ -30,11 +39,8 @@ Main (interpreter => /lib64/ld-linux-x86-64.so.2)
     libc.so.6 => /usr/lib/libc.so.6
 ```
 
-The depending library `libB` is found with `lddtree` but should not:
+The depending library `libB` is found with `lddtree` but should not.
 
-```
-Running ldd
-	libLibB.so => /home/gogoprog/code/lddtreebug/build/libLibB.so (0x00007f79d1c24000)
-Running lddtree
-        libLibB.so => /home/gogoprog/code/lddtreebug/build/libLibB.so
-```
+It seems that `rpath` info is not used with `lddtree`.
+
+
