@@ -10,7 +10,7 @@ target_link_libraries (Main PUBLIC LibA)
 
 set (patch_command patchelf ${CMAKE_CURRENT_BINARY_DIR}/*.so --set-rpath 'somethingwrong/')
 add_custom_command (
-    TARGET LibB POST_BUILD
+    TARGET LibA POST_BUILD
     COMMAND ${patch_command}
     COMMENT "Patching rpath"
     )
